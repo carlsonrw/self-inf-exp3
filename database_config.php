@@ -4,5 +4,5 @@
   $username = "pipelineteam";
   $password = "crockettlab14";
   $dbname = "crockettlab_pipeline";
-  $table = "default";
+  $table = "test";
 ?>
