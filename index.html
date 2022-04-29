@@ -1810,50 +1810,19 @@ timeline.push(attncheck_fb);
       
 // WRITE TO DATABASE
       
-//       //no redirect {uncomment last trial too}
-//         jsPsych.init({
-//             timeline: timeline, 
-//             preload_images: images,
-//             show_preload_progress_bar: false,
-//             on_finish: function() {
-// //            jsPsych.data.displayData();
-//                 firebase.database().ref(firebase.auth().currentUser.uid).set({
-//                     data: jsPsych.data.get().values()
-//                 })
-//             }
-//         });
-    
- //////////////////////////   
-    
-    function saveData(name, data){
-      var xhr = new XMLHttpRequest();
-      xhr.open('POST', 'write_data.php'); // 'write_data.php' is the path to the php file described above.
-      xhr.setRequestHeader('Content-Type', 'application/json');
-      xhr.send(JSON.stringify({filename: name, filedata: data}));
-    }
-
-    // call the saveData function after the experiment is over
-    jsPsych.init({
-        timeline: timeline, 
-        preload_images: images,
-        show_preload_progress_bar: false,
-       // code to define the experiment structure would go here...
-       on_finish: function(){ saveData("experiment_data", jsPsych.data.get().csv()); }
-    }); 
-    
-     //////////////////////////  
-    
-//     <?php
-//   $servername = "mysqlpipeline.crockettwiki.dreamhosters.com";
-//   $port = 3306; ?
-//   $username = "pipelineteam";
-//   $password = "crockettlab14";
-//   $dbname = "crockettlab_pipeline";
-//   $table = "test";
-// ?>
-
-
-    
+      //no redirect {uncomment last trial too}
+        jsPsych.init({
+            timeline: timeline, 
+            preload_images: images,
+            show_preload_progress_bar: false,
+            on_finish: function() {
+//            jsPsych.data.displayData();
+                firebase.database().ref(firebase.auth().currentUser.uid).set({
+                    data: jsPsych.data.get().values()
+                })
+            }
+        });
+      
 //      //with redirect  (data writing is failing with this, redirect is working)
 //        jsPsych.init({
 //            timeline: timeline, 
